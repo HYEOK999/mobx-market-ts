@@ -1,14 +1,17 @@
 import React from 'react';
 import Counter from './components/Counter';
 import SuperMarket from './components/SuperMarket';
+import { StoreProvider } from './context';
 
 function App() {
   return (
-    <div className="App">
-      <Counter />
-      <hr />
-      <SuperMarket />
-    </div>
+    <StoreProvider>
+      <div className="App">
+        <Counter />
+        <hr />
+        <SuperMarket />
+      </div>
+    </StoreProvider>
   );
 }
 
