@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import ShopItem from './ShopItem';
 import { useObserver } from 'mobx-react';
-import useStore from '../useStore';
+// import useStore from '../useStore';
+import { useRootData } from '../hook';
 
 type Items = {
   name: string;
@@ -30,7 +31,8 @@ const items: Items[] = [
 ];
 
 const ShopItemList: React.FC = () => {
-  const { market } = useStore();
+  // const { market } = useStore();
+  const market = useRootData((store) => store.market);
 
   const onPut = (name: string, price: number): void => {
     market.put(name, price);
