@@ -1,12 +1,14 @@
 import React from 'react';
 import BasketItem from './BasketItem';
 import { useObserver } from 'mobx-react';
-import useStore from '../useStore';
+// import useStore from '../useStore';
+import { useRootData } from '../hook';
 
 // export type BasketItemListProps = {};
 
 const BasketItemList: React.FC = () => {
-  const { market } = useStore();
+  // const { market } = useStore();
+  const market = useRootData((store) => store.market);
 
   const onTake = (name: string): void => {
     market.take(name);
