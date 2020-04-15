@@ -1,12 +1,11 @@
 import React from 'react';
 import { useObserver } from 'mobx-react';
-import useStore from '../useStore';
-
-// type TotalPriceProps = {};
+import { toJS } from 'mobx';
+import { useRootData } from '../hook';
 
 const TotalPrice: React.FC = () => {
-  const { market } = useStore();
-  console.log('total');
+  const { market } = useRootData((store) => store);
+  console.log('total', toJS(market));
   return useObserver(() => (
     <div>
       <hr />
